@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; img-src data: *; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://* http://* 'unsafe-inline' 'unsafe-eval'; img-src * 'self' data: https:;" />
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.common.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.default.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.mobile.all.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/PluginsCss.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <title>SeekDownload</title>
+    </head>
+    <body class="loaded" style="overflow: hidden;color:black">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        <div data-role="view" id="view-login" data-title="Welcome" style="width:0;height:0" data-show="onShowViewLogin">
+        </div>
+        <div id="login-main">
+            <img src="images/backintro.jpg" id="intro" />
+            <!--<video playsinline muted loop id="intro" autoplay poster="images/loginBackgroung.jpg">
+                <source src="media/login.webm" type="video/webm" />
+                <source src="media/login.mp4" type="video/mp4" />
+            </video>-->
+            <div class="login_div">
+                <div class="login_btn" data-bind="visible: isVisible_LogBtn" style="display:none">
+                    <a class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect full_width"
+                       data-rel="modalview" data-role="button" style="text-transform: capitalize" data-bind="click: logIn">
+                        <img src="images/Icons/google.png" class="login_img" />
+                        Login with Google
+                    </a>
+                </div>
+                <div class="login_btn" data-bind="visible: isVisible_Loader" style="display:none">
+                    <!-- MDL Progress Bar with Indeterminate Progress -->
+                    <div id="login_loader" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div id="material-menu" class="mdl-layout mdl-js-layout mdl-layout--fixed-header hidden" style="overflow:hidden">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Select a File</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <button id="layout-back-btn" class="mdl-button mdl-js-button mdl-button--icon hidden" 
+                                onclick="navigate(this)" data-backto="" data-from="">
+                            <i class="material-icons">arrow_back</i>
+                        </button>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer" id="left-drawer">
+                <header class="mdl-layout__header drawer_header">
+                    <ul class="mdl-list rmv_margin_padding">
+                        <li class="mdl-list__item mdl-list__item--two-line" style="color:white">
+                            <div class="mdl-list__item-primary-content flex">
+                                <div class="circle"><span data-bind="text: userInfo.IT"></span></div>
+                                <span data-bind="text: userInfo.ig" style="padding-left:0.5em"></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span data-bind="text: userInfo.U3" style="padding-left:16px"></span>
+                        </li>
+                    </ul>
+                </header>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#" data-bind="click: logOut">Sign Out</a>
+                    <a class="mdl-navigation__link" href="#">About</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content custom-background-white" style="height:inherit">
+                <div class="page-content">
+                    <div id="file-list-menu">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label fix_inputs">
+                            <input class="mdl-textfield__input" type="text" id="listview-file-list-filter">
+                            <label class="mdl-textfield__label" for="listview-file-list-filter">Search...</label>
+                        </div>
+                        <ul id="listview-file-list" data-style="inset"></ul><!--data-bind="source:dataTrackList"-->
+                        <!-- Left aligned menu on top of button  -->
+                       
+                    </div>
+                    <div id="file-data-menu" style="display:none" data-onclose="close_FileDataMenu">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label fix_inputs">
+                            <input class="mdl-textfield__input" type="text" id="listview-file-data-filter">
+                            <label class="mdl-textfield__label" for="listview-file-data-filter">Search...</label>
+                        </div>
+                        <ul id="listview-file-data" data-style="inset"></ul><!--data-bind="source:dataTrackList"-->
+                    </div>
+                    <div is="check-data-menu" style="display:none">
+                        <div id="masterGrid"></div>
+                    </div>
+                </div>
+            </main>
+            <footer class="mdl-mini-footer footer_style">
+                <div class="mdl-mini-footer--left-section">
+                    <!--<div class="mdl-logo">Title</div>-->
+                    <button id="demo-menu-top-left"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect"
+                        data-mdl-for="demo-menu-top-left">
+                        <!--<li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons custom-color">description</i>
+                                Sheets
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                                    <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                                </label>
+                            </span>
+                        </li>-->
+                        <li class="mdl-menu__item text-center">All</li>
+                        <li class="mdl-menu__item">
+                            <img src="images/Icons/icon_1_spreadsheet_x16.png" />
+                            <span style="padding:inherit">Sheets</span>
+                        </li>
+                        <li class="mdl-menu__item">
+                            <img src="images/Icons/icon_1_document_x16.png" />
+                            <span style="padding:inherit">Docs</span>
+                        </li>
+                        <li class="mdl-menu__item">
+                            <img src="images/Icons/octet-stream.png" />
+                            <span style="padding:inherit">Others</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list" style="display:inline-block">
+                        <li>
+                            <a target="_blank" href="http://www.google.pt" style="color:rgb(66, 133, 244);padding:0.5em">
+                                <i class="fa fa-google" aria-hidden="true" style="font-size:large"></i>
+                            </a>
+                            <a target="_blank" href="http://www.youtube.pt" style="color:rgb(229, 44, 39);padding:0.5em">
+                                <i class="fa fa-youtube-play fa-2x" aria-hidden="true" style="font-size:large"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="social-title hide-small">&#169; S&D 2017</span>
+                </div>
+            </footer>
+        </div>
+
+        <div data-role="modalview" id="modalview-list-more-music" style="width: 80%;height:80%" data-open="onShowModalListMoreMusic">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span>Select to change...</span>
+                    <a data-click="closeModalView" data-viewname="modalview-list-more-music" data-role="button" data-align="right">Cancel</a>
+                </div>
+            </div>
+            <div>
+                <ul class="demo-list-icon mdl-list" id="listview-list-more-music">
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="modalview" id="modalview-config-list" data-open="open_ModalDataSheetOptions" data-close="close_ModalDataSheetOptions" style="width:100%;height:100%">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span>Options</span>
+                    <a data-click="closeModalView" data-viewname="modalview-config-list" data-role="button" data-align="right">Cancel</a>
+                </div>
+            </div>
+            <div class="optionsStep1" data-bind="visible: step1">
+                <h2 class="text-center">What do you want to do...</h2>
+                <div class="demo-list-action mdl-list">
+                    <a class="block" data-bind="click: showColumns" data-oper="LD">
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons" style="color:#03389a;padding-right:0.5em">chrome_reader_mode</i>
+                                <span>Check the Data</span>
+                            </span>
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </a>
+                    <a class="block" data-bind="click: open_MusicDataSheet" data-viewname="modalview-config-list" data-oper="ML">
+                        <div class="mdl-list__item details-link">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons" style="color:green;padding-right:0.5em">library_music</i>
+                                <span>Convert Music List</span>
+                            </span>
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="optionsStep2" data-bind="visible: step2">
+                <div class="list_file_container" style="padding:0 1em">
+                    <div>
+                        <h3 class="text-left">Columns to Show (Max: 2)</h3>
+                        <ul class="mdl-list columns-list" data-role="listview" data-auto-bind="true"
+                            data-bind="source: dataSourceColumnsSelec, click:click_SelectColumn" data-template="tmpl-list-columns"></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-left">Datasheet Columns</h3>
+                        <ul class="mdl-list columns-list" data-role="listview" data-auto-bind="true"
+                            data-bind="source: dataSourceColumnsUnselec, click:click_SelectColumn" data-template="tmpl-list-columns"></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-left">More Options</h3>
+                        <div>
+                            <label>
+                                Page Size
+                                <select id="opt_PageSize">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-bind="visible: step2">
+                <div data-role="tabstrip">
+                    <a data-icon="bookmarks" data-bind="click: click_showData">
+                        Check Data
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/plugins/plugins.js"></script>
+        <script type="text/javascript" src="scripts/common.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <!--<script type="text/javascript" src="scripts/plugins/jquery-ui/core.js"></script>
+        <script type="text/javascript" src="scripts/plugins/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/plugins/kendo.all.min.js"></script>
+        <script type="text/javascript" src="scripts/plugins/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="scripts/plugins/material.min.js"></script>
+        <script type="text/javascript" src="scripts/plugins/OAuth2.0.js"></script>-->
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload = function () { }; loadOAuth()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript" charset="utf-8">
+            google.load("visualization", "1");
+            is_mobile = /mobile|android/i.test(navigator.userAgent);
+            var is_windows = /MSAppHost/i.test(navigator.userAgent);
+            delay(function () {
+                if (!is_mobile || !is_windows) {
+                    BigLoading();
+                    $(document).ready(function () {
+                        app = new kendo.mobile.Application(document.body, { skin: "nova" });
+                        createAplication();
+                    });
+                } else {
+                    app = new kendo.mobile.Application(document.body, { skin: "nova" });
+                }
+            }, 1000);
+        </script>
+        <div id="toast-message" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <div class="overlay hidden">
+            <div id="spinner" class="absolute-center mdl-spinner mdl-js-spinner"></div>
+        </div>
+    </body>
+</html>
+
+<!-- /*
+ *********************
+   TEMPLATES
+ *********************
+ */ -->
+<script type="text/x-kendo-template" id="tmpl-list-columns">
+    <!--<div style="padding: 0 0.5em;border: 1px solid \#dfe1e2;border-radius: 2em;">-->
+        <button class="mdl-button mdl-js-button mdl-button--raised" style="border: 1px solid \#dfe1e2;border-radius: 2em;width:100%">
+            #:col#.&nbsp;&nbsp;&nbsp;<span class="capitalize">#:name#</span>
+        </button>
+    <!--</div>-->
+</script>
+
+<script type="text/x-kendo-template" id="listview-files-list-template">
+    #if(id){#
+    <a class="details-link block" data-role="listview-link" data-rel="modalview"  href="\#modalview-config-list" 
+       data-id="#:id#" style="text-decoration:none;padding:0.5em">
+        <div class="list_file_container">
+            <div >
+                <img src="#:iconLink#" />
+                <span class="file_list_name">#:name#</span>
+            </div>
+            <div class="text-left">
+                <i class="material-icons">perm_identity</i><span class="file_list_name" style="vertical-align:super">#:owners[0].displayName#</span>
+            </div>
+            <div class="text-center">
+                <label class="file_list_name">Modified</label><span class="file_list_name">#=kendo.toString(new Date(modifiedTime), "dd/MM/yyyy")#</span>
+            </div>
+        </div>
+    </a>
+    <!--<a class="details-link" href="\#" data-role="listview-link" data-from="\#file-list-menu" data-to="\#file-data-menu">
+        <i class="material-icons custom-color">description</i>
+        <span>#:name#</span>
+    </a>-->
+    #}else{#
+    <div style="text-align:center">
+        <span>#:name#</span>
+    </div>
+    #}#
+</script>
+
+<script type="text/x-kendo-template" id="listview-files-data-template">
+    <!--<a class="details-link" href="\#" data-role="listview-link" data-id="#:id#">-->
+        <!--<div class="flex">-->
+            <div class="float_left" id="#:id#">
+                #if(typeof VID_ID != 'undefined'){#
+                <iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/#:VID_ID#"
+                        frameborder="0" style="display:inline;width:200px;height:130px" allowfullscreen></iframe>
+                #}else{#
+                    <img src="\images\\video_not_found.jpg" style="width:200px;height:130px"/>
+                #}#
+            </div>
+            <div class="float_left" style="padding-left:0.5em">
+                <span class="block">#:Autor#</span>
+                <span class="block">#:Titulo#</span>
+                <!--<span class="block">#:length#</span>-->
+            </div>
+            #if(typeof VID_LIST != 'undefined' && VID_LIST.length > 0){#
+                <div style="display: inline-block;padding: inherit">
+                    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect"
+                       style="width:100%" data-rel="modalview" data-role="button" href="\#modalview-list-more-music" 
+                       data-itemid="#:id#">
+                        More
+                    </a>
+                    <!--<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                        More
+                    </button>-->
+                </div>
+            #}#
+            <div class="float_right">
+                #if(typeof LINK != 'undefined'){#
+                    <iframe class="myframelink" src="https://www.yt2mp3s.me/api-console/mp3/#:VID_ID#" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>
+                #}#
+            </div>
+        <!--</div>-->
+    <!--</a>-->
+</script>

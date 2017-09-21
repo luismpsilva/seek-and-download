@@ -1,0 +1,17 @@
+{
+    "name": "SeekDownload",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "cordova-plugin-inappbrowser": "1.7.0",
+        "cordova-plugin-whitelist": "1",
+        "org.jboss.aerogear.cordova.android.reflect": "0.0.1"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-whitelist": {},
+            "org.jboss.aerogear.cordova.android.reflect": {}
+        }
+    }
+}

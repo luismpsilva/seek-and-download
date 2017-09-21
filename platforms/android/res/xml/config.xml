@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget defaultlocale="pt-PT" id="com.cordova.seekdownload" version="0.0.1" windows-packageVersion="0.0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="LaunchMyApp">
+        <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="res/icons/android/icon-36-ldpi.png" />
+    <icon density="mdpi" src="res/icons/android/icon-48-mdpi.png" />
+    <icon density="hdpi" src="res/icons/android/icon-72-hdpi.png" />
+    <icon density="xhdpi" src="res/icons/android/icon-96-xhdpi.png" />
+    <splash density="land-hdpi" src="res/screens/android/screen-hdpi-landscape.png" />
+    <splash density="land-ldpi" src="res/screens/android/screen-ldpi-landscape.png" />
+    <splash density="land-mdpi" src="res/screens/android/screen-mdpi-landscape.png" />
+    <splash density="land-xhdpi" src="res/screens/android/screen-xhdpi-landscape.png" />
+    <splash density="port-hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
+    <splash density="port-ldpi" src="res/screens/android/screen-ldpi-portrait.png" />
+    <splash density="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
+    <splash density="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
+    <name>SeekDownload</name>
+    <description>Aplicação Teste</description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">Luis Silva</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <vs:features />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="windows-target-version" value="8.1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="Fullscreen" value="True" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-maxSdkVersion" value="24" />
+    <preference name="ShowTitle" value="True" />
+    <preference name="WindowsStoreDisplayName" value="S&amp;D" />
+    <vs:platformSpecificValues>
+        <vs:platformSpecificWidget id="sdProject" platformName="windows" version="0.0.0.1" />
+    </vs:platformSpecificValues>
+</widget>

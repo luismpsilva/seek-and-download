@@ -1,0 +1,25 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cordova.seekdownload"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "jsodemo",
+            "ANDROID_SCHEME": " ",
+            "ANDROID_HOST": " ",
+            "ANDROID_PATHPREFIX": "/",
+            "PACKAGE_NAME": "com.cordova.seekdownload"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.cordova.seekdownload"
+        }
+    },
+    "dependent_plugins": {}
+}
