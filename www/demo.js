@@ -2,7 +2,7 @@
 var clientId = '190365650360-sd2n8va3jvh61m67vijv1d5d6s4c5dai.apps.googleusercontent.com';
 var scopes = 'https://spreadsheets.google.com/feeds';
 
-function init() {
+function init() { 
     gapi.auth.authorize(
         { client_id: clientId, scope: scopes, immediate: true },
         handleAuthResult);
