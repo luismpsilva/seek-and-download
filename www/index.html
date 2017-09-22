@@ -15,12 +15,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-
-        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.common.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.default.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/kendo/kendo.mobile.all.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/PluginsCss.css" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/scripts.css" />
         <title>SeekDownload</title>
     </head>
     <body class="loaded" style="overflow: hidden;color:black">
@@ -243,20 +238,16 @@
             </div>
         </div>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-        <script type="text/javascript" src="scripts/plugins/plugins.js"></script>
+        <script type="text/javascript" src="scripts/scripts.js"></script>
         <script type="text/javascript" src="scripts/common.js"></script>
         <script type="text/javascript" src="scripts/app.js"></script>
         <!--<script type="text/javascript" src="scripts/plugins/jquery-ui/core.js"></script>
         <script type="text/javascript" src="scripts/plugins/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/plugins/kendo.all.min.js"></script>
         <script type="text/javascript" src="scripts/plugins/modernizr-2.6.2.min.js"></script>
-        <script type="text/javascript" src="scripts/plugins/material.min.js"></script>
-        <script type="text/javascript" src="scripts/plugins/OAuth2.0.js"></script>-->
-        <script async defer src="https://apis.google.com/js/api.js"></script><!--
-            onload="this.onload = function () { }; loadOAuth()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()"    
-        -->
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="scripts/plugins/material.min.js"></script>-->
+        <!--<script async defer src="https://apis.google.com/js/api.js"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>-->
         <script type="text/javascript" charset="utf-8">
             google.load("visualization", "1");
             is_mobile = /mobile|android/i.test(navigator.userAgent);
@@ -335,26 +326,27 @@
                     <img src="\images\\video_not_found.jpg" style="width:200px;height:130px"/>
                 #}#
             </div>
-            <div class="float_left" style="padding-left:0.5em">
+            <div class="float_left" style="padding-left:0.5em;line-height:2em">
                 <span class="block">#:Autor#</span>
                 <span class="block">#:Titulo#</span>
-                <!--<span class="block">#:length#</span>-->
-            </div>
-            #if(VID_LIST && typeof VID_LIST != 'undefined' && VID_LIST.length > 0){#
-                <div style="display: inline-block;padding: inherit">
+                #if(VID_LIST && typeof VID_LIST != 'undefined' && VID_LIST.length > 0){#
+                    <!--<div style="display: inline-block;padding: inherit">-->
                     <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect"
-                       style="width:100%" data-rel="modalview" data-role="button" href="\#modalview-list-more-music" 
-                       data-itemid="#:id#">
+                       data-rel="modalview" data-role="button" href="\#modalview-list-more-music"
+                       data-itemid="#:id#"><!--style="width:100%"-->
                         More
                     </a>
                     <!--<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                        More
-                    </button>-->
-                </div>
-            #}#
-            <div class="float_right">
+                            More
+                        </button>-->
+                    <!--</div>-->
+                #}#
+                <!--<span class="block">#:length#</span>-->
+            </div>            
+            <div class="float_right downloadLink" style="padding-top:3%">
                 #if(typeof LINK != 'undefined'){#
-                    <iframe class="myframelink" src="https://www.yt2mp3s.me/api-console/mp3/#:VID_ID#" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>
+                    <iframe style="width:100%;height:57px;border:0;overflow:hidden;" scrolling="no" src="//break.tv/widget/button/?link=https://www.youtube.com/watch?v=#:VID_ID#&color=961522"></iframe>
+                    <!--<iframe class="myframelink" src="https://www.yt2mp3s.me/api-console/mp3/#:VID_ID#" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>-->
                 #}#
             </div>
         <!--</div>-->

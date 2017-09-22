@@ -1,0 +1,28 @@
+[{
+    "outputFileName": "www/css/scripts.css",
+    "inputFiles": [
+    "www/css/kendo/kendo.common.min.css",
+    "www/css/kendo/kendo.default.min.css",
+    "www/css/kendo/kendo.mobile.all.min.css",
+    "www/css/PluginsCss.css",
+    "www/css/app.css"
+  ],
+    "minify": { "enabled": false },
+    "includeInProject": false,
+    "sourceMaps": false
+  },{
+    "outputFileName": "www/scripts/scripts.js",
+    "inputFiles": [
+      "www/scripts/plugins/jquery.min.js",
+      "www/scripts/plugins/jquery-ui/jquery-ui.min.js",
+      "www/scripts/plugins/kendo.all.min.js",
+      "www/scripts/plugins/modernizr-2.6.2.min.js",
+      "www/scripts/plugins/material.min.js",
+      "www/scripts/plugins/googleapi.js",
+      "www/scripts/plugins/jsapi.js"
+    ],
+    "minify": { "enabled": false },
+    "includeInProject": false,
+    "sourceMaps": false
+  }
+]
