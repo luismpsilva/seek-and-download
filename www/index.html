@@ -27,7 +27,7 @@
         <div data-role="view" id="view-login" data-title="Welcome" style="width:0;height:0" data-show="onShowViewLogin">
         </div>
         <div id="login-main">
-            <img src="images/backintro.jpg" id="intro" />
+            <img src="images/introBackground.jpg" id="intro"/>
             <!--<video playsinline muted loop id="intro" autoplay poster="images/loginBackgroung.jpg">
                 <source src="media/login.webm" type="video/webm" />
                 <source src="media/login.mp4" type="video/mp4" />
@@ -155,11 +155,11 @@
             </footer>
         </div>
 
-        <div data-role="modalview" id="modalview-list-more-music" style="width: 80%;height:80%" data-open="onShowModalListMoreMusic"
+        <div data-role="modalview" id="modalview-list-more-music" style="width: 100%;height:100%" data-open="onShowModalListMoreMusic"
              data-close="onCloseModalListMoreMusic">
             <div data-role="header">
                 <div data-role="navbar">
-                    <span>Select to change...</span>
+                    <span>More results</span>
                     <a data-click="closeModalView" data-viewname="modalview-list-more-music" data-role="button" data-align="right">Cancel</a>
                 </div>
             </div>
@@ -241,19 +241,12 @@
         <script type="text/javascript" src="scripts/scripts.js"></script>
         <script type="text/javascript" src="scripts/common.js"></script>
         <script type="text/javascript" src="scripts/app.js"></script>
-        <!--<script type="text/javascript" src="scripts/plugins/jquery-ui/core.js"></script>
-        <script type="text/javascript" src="scripts/plugins/jquery.min.js"></script>
-        <script type="text/javascript" src="scripts/plugins/kendo.all.min.js"></script>
-        <script type="text/javascript" src="scripts/plugins/modernizr-2.6.2.min.js"></script>
-        <script type="text/javascript" src="scripts/plugins/material.min.js"></script>-->
-        <!--<script async defer src="https://apis.google.com/js/api.js"></script>
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>-->
         <script type="text/javascript" charset="utf-8">
             google.load("visualization", "1");
-            is_mobile = /mobile|android/i.test(navigator.userAgent);
-            var is_windows = /MSAppHost/i.test(navigator.userAgent);
+            //is_mobile = /mobile|android/i.test(navigator.userAgent);
+            //var is_windows = /MSAppHost/i.test(navigator.userAgent);
             delay(function () {
-                if (!is_mobile || !is_windows) {
+                if (!isMobile.any() || !isMobile.Windows()) {
                     BigLoading();
                     $(document).ready(function () {
                         app = new kendo.mobile.Application(document.body, { skin: "nova" });
@@ -264,7 +257,7 @@
                 }
             }, 1000);
         </script>
-        <div id="toast-message" class="mdl-js-snackbar mdl-snackbar">
+        <div id="toast-message" class="mdl-js-snackbar mdl-snackbar" style="z-index:100002">
             <div class="mdl-snackbar__text"></div>
             <button class="mdl-snackbar__action" type="button"></button>
         </div>
@@ -289,66 +282,58 @@
 
 <script type="text/x-kendo-template" id="listview-files-list-template">
     #if(id){#
-    <a class="details-link block" data-role="listview-link" data-rel="modalview"  href="\#modalview-config-list" 
-       data-id="#:id#" style="text-decoration:none;padding:0.5em">
-        <div class="list_file_container">
-            <div >
-                <img src="#:iconLink#" />
-                <span class="file_list_name">#:name#</span>
+        <a class="details-link block" data-role="listview-link" data-rel="modalview"  href="\#modalview-config-list" 
+           data-id="#:id#" style="text-decoration:none;padding:0.5em">
+            <div class="list_file_container">
+                <div>
+                    <img src="#:iconLink#" />
+                    <span class="file_list_name">#:name#</span>
+                </div>
+                <div class="text-left">
+                    <i class="material-icons">perm_identity</i><span class="file_list_name" style="vertical-align:super">#:owners[0].displayName#</span>
+                </div>
+                <div class="text-center">
+                    <label class="file_list_name">Modified</label><span class="file_list_name">#=kendo.toString(new Date(modifiedTime), "dd/MM/yyyy")#</span>
+                </div>
             </div>
-            <div class="text-left">
-                <i class="material-icons">perm_identity</i><span class="file_list_name" style="vertical-align:super">#:owners[0].displayName#</span>
-            </div>
-            <div class="text-center">
-                <label class="file_list_name">Modified</label><span class="file_list_name">#=kendo.toString(new Date(modifiedTime), "dd/MM/yyyy")#</span>
-            </div>
-        </div>
-    </a>
-    <!--<a class="details-link" href="\#" data-role="listview-link" data-from="\#file-list-menu" data-to="\#file-data-menu">
-        <i class="material-icons custom-color">description</i>
-        <span>#:name#</span>
-    </a>-->
+        </a>
+        <!--<a class="details-link" href="\#" data-role="listview-link" data-from="\#file-list-menu" data-to="\#file-data-menu">
+            <i class="material-icons custom-color">description</i>
+            <span>#:name#</span>
+        </a>-->
     #}else{#
-    <div style="text-align:center">
-        <span>#:name#</span>
-    </div>
+        <div style="text-align:center">
+            <span>#:name#</span>
+        </div>
     #}#
 </script>
 
 <script type="text/x-kendo-template" id="listview-files-data-template">
-    <!--<a class="details-link" href="\#" data-role="listview-link" data-id="#:id#">-->
-        <!--<div class="flex">-->
-            <div class="float_left" id="#:id#">
-                #if(typeof VID_ID != 'undefined'){#
-                <iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/#:VID_ID#"
-                        frameborder="0" style="display:inline;width:200px;height:130px" allowfullscreen></iframe>
-                #}else{#
-                    <img src="\images\\video_not_found.jpg" style="width:200px;height:130px"/>
-                #}#
-            </div>
-            <div class="float_left" style="padding-left:0.5em;line-height:2em">
-                <span class="block">#:Autor#</span>
-                <span class="block">#:Titulo#</span>
-                #if(VID_LIST && typeof VID_LIST != 'undefined' && VID_LIST.length > 0){#
-                    <!--<div style="display: inline-block;padding: inherit">-->
-                    <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect"
-                       data-rel="modalview" data-role="button" href="\#modalview-list-more-music"
-                       data-itemid="#:id#"><!--style="width:100%"-->
-                        More
-                    </a>
-                    <!--<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                            More
-                        </button>-->
-                    <!--</div>-->
-                #}#
-                <!--<span class="block">#:length#</span>-->
-            </div>            
-            <div class="float_right downloadLink" style="padding-top:3%">
-                #if(typeof LINK != 'undefined'){#
-                    <iframe style="width:100%;height:57px;border:0;overflow:hidden;" scrolling="no" src="//break.tv/widget/button/?link=https://www.youtube.com/watch?v=#:VID_ID#&color=961522"></iframe>
-                    <!--<iframe class="myframelink" src="https://www.yt2mp3s.me/api-console/mp3/#:VID_ID#" width="100%" height="100px" scrolling="no" style="border:none;"></iframe>-->
-                #}#
-            </div>
-        <!--</div>-->
-    <!--</a>-->
+    <div class="row">
+        <div id="#:id#" style="padding-left:0.5em">
+            #if(typeof VID_ID != 'undefined'){#
+            <iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/#:VID_ID#"
+                    frameborder="0" style="display:inline;width:300px;height:160px" allowfullscreen></iframe>
+            #}else{#
+            <img src="\images\\video_not_found.jpg" style="width:200px;height:130px" />
+            #}#
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-6" style="line-height:1.5em">
+            <span class="block">#:Autor#</span>
+            <span class="block">#:Titulo#</span>
+            #if(VID_LIST && typeof VID_LIST != 'undefined' && VID_LIST.length > 0){#
+            <a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect"
+               data-rel="modalview" data-role="button" href="\#modalview-list-more-music"
+               data-itemid="#:id#">
+                <!--style="width:100%"-->
+                More
+            </a>
+            #}#
+        </div>
+        <div class="col-xs-12 col-sm-3 col-lg-3" style="margin:auto auto">
+            #if(typeof LINK != 'undefined'){#
+                <iframe style="height:57px;border:0;overflow:hidden;" scrolling="no" src="//break.tv/widget/button/?link=https://www.youtube.com/watch?v=#:VID_ID#&color=961522"></iframe>
+            #}#
+        </div>
+    </div>
 </script>

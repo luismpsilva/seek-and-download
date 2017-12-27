@@ -472,7 +472,9 @@ function open_ModalDataSheetOptions(e) {
                             select += data[i]['col'];
                     }
                     getDataSheetColumns(this.file_Id, select).then(function (r) {
-                        console.log(r);
+                        var dataDT = CreateDataTable(r);
+                        showNotification('toast', 'Not implemented... :/ For now!', "error");
+                        console.log(dataDT);
                     }, function (ex) {
                         showNotification('toast', 'Erro: ' + ex, "error");
                     });
@@ -495,7 +497,7 @@ function open_ModalDataSheetOptions(e) {
                     showLoader();
                     getDataSheetColumns(this.file_Id).then(function (data) {
                         console.log(data);
-                        var dataS = CreateDataTable(data);
+                        var dataS = CreateDataTable(data, null, true);
                         for(var i = 0; i < dataS.length; i++)
                             dataS[i]['selected'] = false;
                         obs_DataSheetOptions.set("dataSourceColumnsUnselec", dataS);
@@ -528,8 +530,9 @@ function open_ModalDataSheetOptions(e) {
                 closeModalView(null, view);
                 navigate(null, "#file-list-menu", "#file-data-menu", true);
                 if (this.file_Id) {
+                    $("#listview-file-data-filter").val(null);
                     getDataSheetColumns(this.file_Id, "SELECT A, B").then(function (rsp) {
-                        var dataTable = CreateDataTable(rsp, ['tag', 'VID_LIST', 'VID_ID']);
+                        var dataTable = CreateDataTable(rsp, ['tag', 'VID_LIST', 'VID_ID']);//CreateDataTable2(rsp, ['Autor', 'Titulo']);
                         var promises = []
                         for (var i = 0; i < dataTable.length; i++) {
                             dataTable[i]["tag"] = dataTable[i][Object.keys(dataTable[i])[0]] + " " + dataTable[i][Object.keys(dataTable[i])[1]];
@@ -546,7 +549,8 @@ function open_ModalDataSheetOptions(e) {
                                 });
                                 $("#listview-file-data-filter").keyup(function (e) {
                                     var filterString = e.target.value;
-                                    $("#listview-file-data").data("kendoMobileListView").dataSource.filter({ field: "Autor", operator: "startswith", value: filterString });
+                                    $("#listview-file-data").data("kendoMobileListView").dataSource
+                                        .filter({ field: "Autor", operator: "startswith", value: filterString });
                                 });
                             } else {
                                 $("#listview-file-data").data("kendoMobileListView").setDataSource(obs_DataSheetOptions.musicListData(dataTable));

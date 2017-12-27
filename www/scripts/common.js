@@ -7,7 +7,41 @@ DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4", "h
 SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive.metadata.readonly" +
     " https://www.googleapis.com/auth/youtube https://spreadsheets.google.com/feeds https://www.googleapis.com/auth/userinfo.email",
 GoogleAuth,
-app, obs_Master, obs_DataSheetOptions;
+app, obs_Master, obs_DataSheetOptions, isMobile = {
+    getUserAgent: function () {
+        return navigator.userAgent;
+    },
+    Android: function () {
+        return /Android/i.test(isMobile.getUserAgent()) && !isMobile.Windows();
+    },
+    BlackBerry: function () {
+        return /BlackBerry|BB10|PlayBook/i.test(isMobile.getUserAgent());;
+    },
+    iPhone: function () {
+        return /iPhone/i.test(isMobile.getUserAgent()) && !isMobile.iPad() && !isMobile.Windows();
+    },
+    iPod: function () {
+        return /iPod/i.test(isMobile.getUserAgent());
+    },
+    iPad: function () {
+        return /iPad/i.test(isMobile.getUserAgent());
+    },
+    iOS: function () {
+        return (isMobile.iPad() || isMobile.iPod() || isMobile.iPhone());
+    },
+    Opera: function () {
+        return /Opera Mini/i.test(isMobile.getUserAgent());
+    },
+    Windows: function () {
+        return /Windows Phone|IEMobile|WPDesktop|Edge/i.test(isMobile.getUserAgent());
+    },
+    KindleFire: function () {
+        return /Kindle Fire|Silk|KFAPWA|KFSOWI|KFJWA|KFJWI|KFAPWI|KFAPWI|KFOT|KFTT|KFTHWI|KFTHWA|KFASWI|KFTBWI|KFMEWI|KFFOWI|KFSAWA|KFSAWI|KFARWI/i.test(isMobile.getUserAgent());
+    },
+    any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};;
 
 // This code loads the IFrame Player API code asynchronously.
 //var tag = document.createElement('script');
@@ -204,24 +238,46 @@ function getUserInfo() {
 //    }
 //}
 
-function CreateDataTable(data, cwFields) {
+function CreateDataTable2(data, columns) {
+    try {
+        var dataSource = [], colNum = data.getNumberOfColumns()
+        if (data && data.up()) {
+            for (var i = 0, length = data.getNumberOfRows() ; i < length; i++) {
+                var newObj = {};
+                for (var j = 0, length2 = columns.length; j < length2; j++) {
+                    newObj[columns[j]] = data.getValue(i, j);//linha, coluna
+                }
+                dataSource.push(newObj);
+            }
+            return dataSource;
+        }
+    } catch (ex) {
+        showNotification("toast", "Error: " + ex.message, "error");
+    }
+}
+
+function CreateDataTable(data, cwFields, onlyColumns) {
     try{
         if (data && data.up()) {
             var colNum = data.getNumberOfColumns(),rowNum = data.getNumberOfRows();//rows and col count
             var dataCol = data.up().cols, dataRow = data.up().rows;// cols and rows Data
             var ColStruct = createDataStruture(dataCol), dataSource = [];
-            for (var j = 1; j < dataRow.length; j++) {
-                var ro = dataRow[j]['c'],newObj = {};;
-                for (var k = 0; k < ro.length; k++) {
-                    newObj[ColStruct[k].name] = dataRow[j]['c'][k]['v'];
+            if (!onlyColumns) {
+                for (var j = 1; j < dataRow.length; j++) {
+                    var ro = dataRow[j]['c'], newObj = {};;
+                    for (var k = 0; k < ro.length; k++) {
+                        newObj[ColStruct[k].name] = data.getValue(j, k);//dataRow[j]['c'][k]['v'];
+                    }
+                    if (cwFields) {
+                        for (var l = 0; l < cwFields.length ; l++)
+                            newObj[cwFields[l]] = null;
+                    }
+                    dataSource.push(newObj);
                 }
-                if (cwFields) {
-                    for (var l = 0; l < cwFields.length ; l++)
-                        newObj[cwFields[l]] = null;
-                }
-                dataSource.push(newObj);
+                return dataSource;
+            } else {
+                return ColStruct;
             }
-            return dataSource;
             //for (var i = 0; i < dataRow.length; i++) {
             //    dataSource.push(createObjectStruture(dataRow[i]['c']));
             //}
@@ -230,13 +286,19 @@ function CreateDataTable(data, cwFields) {
         showNotification("toast", "Error: " + ex.message, "error");
     }
     function createDataStruture(dataR) {//create cols data types
-        var ColStruct = [];
+        var ColStruct = [],emptyCol = false;
         for (var j = 0; j < dataCol.length; j++) {
-            if (dataCol[j]['label'] && dataCol[j]['label'] != '')
-                ColStruct.push({ 'col': dataCol[j]['id'], 'type': dataCol[j]['type'], 'name': dataCol[j]['label'] });
-            else
-                ColStruct.push({ 'col': dataCol[j]['id'], 'type': dataCol[j]['type'], 'name': dataRow[0]['c'][j]['v'] });
+            if (dataRow[0]['c'][j]['v'] != null) {
+                if (dataCol[j]['label'] && dataCol[j]['label'] != '')
+                    ColStruct.push({ 'col': dataCol[j]['id'], 'type': dataCol[j]['type'], 'name': dataCol[j]['label'] });
+                else
+                    ColStruct.push({ 'col': dataCol[j]['id'], 'type': dataCol[j]['type'], 'name': dataRow[0]['c'][j]['v'] });
+            } else {
+                emptyCol = true;
+            }
         }
+        if (emptyCol)
+            showNotification('toast', "Empty column titles are ignored due to api limitations. Sorry for the inconvenient.", 'warning');
         return ColStruct;
     }
 }

@@ -36,15 +36,8 @@ img#intro {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: 100%;
     object-fit: cover;
-    /*top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover !important;
-    z-index: -100;
-    background-size: cover;*/ 
 }
 
 @media screen and (max-device-width: 800px) {
@@ -496,6 +489,9 @@ h1 {
 .columns-list > li{
     padding: 0.2em !important;
     border:0!important;
+}
+.mdl-textfield__label{
+    margin-bottom:0!important;
 }
 
 /*

@@ -36,205 +36,240 @@
 33 silly mapToRegistry uri https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
 34 verbose request uri https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
 35 verbose request no auth needed
-36 info attempt registry request try #1 at 17:42:38
-37 verbose request id fa66daec697cb1bd
+36 info attempt registry request try #1 at 10:10:55
+37 verbose request id decee832af6ff154
 38 http request GET https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
-39 verbose request uri https://registry.npmjs.org/cordova-plugin-whitelist
+39 verbose request uri https://registry.npmjs.org/cordova-plugin-inappbrowser
 40 verbose request no auth needed
-41 info attempt registry request try #1 at 17:42:38
-42 verbose etag W/"591dc9c5-4cb5"
-43 verbose lastModified Thu, 18 May 2017 16:20:21 GMT
-44 http request GET https://registry.npmjs.org/cordova-plugin-whitelist
-45 verbose request uri https://registry.npmjs.org/cordova-plugin-inappbrowser
+41 info attempt registry request try #1 at 10:10:55
+42 verbose etag W/"597b23f5-11f7d"
+43 verbose lastModified Fri, 28 Jul 2017 11:45:57 GMT
+44 http request GET https://registry.npmjs.org/cordova-plugin-inappbrowser
+45 verbose request uri https://registry.npmjs.org/cordova-plugin-whitelist
 46 verbose request no auth needed
-47 info attempt registry request try #1 at 17:42:38
-48 verbose etag W/"597b23f5-11f7d"
-49 verbose lastModified Fri, 28 Jul 2017 11:45:57 GMT
-50 http request GET https://registry.npmjs.org/cordova-plugin-inappbrowser
-51 http 304 https://registry.npmjs.org/cordova-plugin-whitelist
-52 verbose headers { date: 'Thu, 21 Sep 2017 16:42:38 GMT',
-52 verbose headers   via: '1.1 varnish',
+47 info attempt registry request try #1 at 10:10:55
+48 verbose etag W/"591dc9c5-4cb5"
+49 verbose lastModified Thu, 18 May 2017 16:20:21 GMT
+50 http request GET https://registry.npmjs.org/cordova-plugin-whitelist
+51 http 200 https://registry.npmjs.org/cordova-plugin-whitelist
+52 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+52 verbose headers   server: 'UploadServer',
 52 verbose headers   'cache-control': 'max-age=300',
-52 verbose headers   etag: 'W/"591dc9c5-4cb5"',
-52 verbose headers   age: '0',
+52 verbose headers   'last-modified': 'Fri, 1 Dec 2017 15:17:14 GMT',
+52 verbose headers   etag: '"5a21727a-5300"',
+52 verbose headers   'content-encoding': 'gzip',
+52 verbose headers   'content-length': '4576',
+52 verbose headers   'accept-ranges': 'bytes',
+52 verbose headers   date: 'Wed, 27 Dec 2017 10:10:56 GMT',
+52 verbose headers   via: '1.1 varnish',
+52 verbose headers   age: '7042',
 52 verbose headers   connection: 'keep-alive',
-52 verbose headers   'x-served-by': 'cache-mad9431-MAD',
+52 verbose headers   'x-served-by': 'cache-mad9425-MAD',
 52 verbose headers   'x-cache': 'HIT',
-52 verbose headers   'x-cache-hits': '1',
-52 verbose headers   'x-timer': 'S1506012159.729412,VS0,VE42',
+52 verbose headers   'x-cache-hits': '8',
+52 verbose headers   'x-timer': 'S1514369457.719586,VS0,VE0',
 52 verbose headers   vary: 'Accept-Encoding, Accept' }
-53 silly get cb [ 304,
-53 silly get   { date: 'Thu, 21 Sep 2017 16:42:38 GMT',
-53 silly get     via: '1.1 varnish',
+53 silly get cb [ 200,
+53 silly get   { 'content-type': 'application/json; charset=UTF-8',
+53 silly get     server: 'UploadServer',
 53 silly get     'cache-control': 'max-age=300',
-53 silly get     etag: 'W/"591dc9c5-4cb5"',
-53 silly get     age: '0',
+53 silly get     'last-modified': 'Fri, 1 Dec 2017 15:17:14 GMT',
+53 silly get     etag: '"5a21727a-5300"',
+53 silly get     'content-encoding': 'gzip',
+53 silly get     'content-length': '4576',
+53 silly get     'accept-ranges': 'bytes',
+53 silly get     date: 'Wed, 27 Dec 2017 10:10:56 GMT',
+53 silly get     via: '1.1 varnish',
+53 silly get     age: '7042',
 53 silly get     connection: 'keep-alive',
-53 silly get     'x-served-by': 'cache-mad9431-MAD',
+53 silly get     'x-served-by': 'cache-mad9425-MAD',
 53 silly get     'x-cache': 'HIT',
-53 silly get     'x-cache-hits': '1',
-53 silly get     'x-timer': 'S1506012159.729412,VS0,VE42',
+53 silly get     'x-cache-hits': '8',
+53 silly get     'x-timer': 'S1514369457.719586,VS0,VE0',
 53 silly get     vary: 'Accept-Encoding, Accept' } ]
-54 verbose etag https://registry.npmjs.org/cordova-plugin-whitelist from cache
-55 verbose get saving cordova-plugin-whitelist to C:\Users\Dev-Machine\AppData\Roaming\npm-cache\registry.npmjs.org\cordova-plugin-whitelist\.cache.json
-56 silly resolveWithNewModule cordova-plugin-whitelist@1.3.2 checking installable status
-57 silly cache add args [ 'cordova-plugin-whitelist@1', null ]
-58 verbose cache add spec cordova-plugin-whitelist@1
-59 silly cache add parsed spec Result {
-59 silly cache add   raw: 'cordova-plugin-whitelist@1',
-59 silly cache add   scope: null,
-59 silly cache add   name: 'cordova-plugin-whitelist',
-59 silly cache add   rawSpec: '1',
-59 silly cache add   spec: '>=1.0.0-0 <2.0.0-0',
-59 silly cache add   type: 'range' }
-60 silly addNamed cordova-plugin-whitelist@>=1.0.0-0 <2.0.0-0
-61 verbose addNamed ">=1.0.0-0 <2.0.0-0" is a valid semver range for cordova-plugin-whitelist
-62 silly addNameRange { name: 'cordova-plugin-whitelist',
-62 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
-62 silly addNameRange   hasData: false }
-63 silly mapToRegistry name cordova-plugin-whitelist
-64 silly mapToRegistry using default registry
-65 silly mapToRegistry registry https://registry.npmjs.org/
-66 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-whitelist
-67 verbose addNameRange registry:https://registry.npmjs.org/cordova-plugin-whitelist not in flight; fetching
-68 verbose get https://registry.npmjs.org/cordova-plugin-whitelist not expired, no request
-69 silly addNameRange number 2 { name: 'cordova-plugin-whitelist',
-69 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
-69 silly addNameRange   hasData: true }
-70 silly addNameRange versions [ 'cordova-plugin-whitelist',
-70 silly addNameRange   [ '1.0.0',
-70 silly addNameRange     '1.1.0',
-70 silly addNameRange     '1.2.0',
-70 silly addNameRange     '1.2.1',
-70 silly addNameRange     '1.2.2',
-70 silly addNameRange     '1.3.0',
-70 silly addNameRange     '1.3.1',
-70 silly addNameRange     '1.3.2' ] ]
-71 silly addNamed cordova-plugin-whitelist@1.3.2
-72 verbose addNamed "1.3.2" is a plain semver version for cordova-plugin-whitelist
-73 silly cache afterAdd cordova-plugin-whitelist@1.3.2
-74 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-whitelist\1.3.2\package\package.json not in flight; writing
-75 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-whitelist\1.3.2\package\package.json written
-76 http 304 https://registry.npmjs.org/cordova-plugin-inappbrowser
-77 verbose headers { date: 'Thu, 21 Sep 2017 16:42:38 GMT',
-77 verbose headers   via: '1.1 varnish',
-77 verbose headers   'cache-control': 'max-age=300',
-77 verbose headers   etag: 'W/"597b23f5-11f7d"',
-77 verbose headers   age: '0',
-77 verbose headers   connection: 'keep-alive',
-77 verbose headers   'x-served-by': 'cache-mad9435-MAD',
-77 verbose headers   'x-cache': 'HIT',
-77 verbose headers   'x-cache-hits': '1',
-77 verbose headers   'x-timer': 'S1506012159.720613,VS0,VE190',
-77 verbose headers   vary: 'Accept-Encoding, Accept' }
-78 silly get cb [ 304,
-78 silly get   { date: 'Thu, 21 Sep 2017 16:42:38 GMT',
-78 silly get     via: '1.1 varnish',
-78 silly get     'cache-control': 'max-age=300',
-78 silly get     etag: 'W/"597b23f5-11f7d"',
-78 silly get     age: '0',
-78 silly get     connection: 'keep-alive',
-78 silly get     'x-served-by': 'cache-mad9435-MAD',
-78 silly get     'x-cache': 'HIT',
-78 silly get     'x-cache-hits': '1',
-78 silly get     'x-timer': 'S1506012159.720613,VS0,VE190',
-78 silly get     vary: 'Accept-Encoding, Accept' } ]
-79 verbose etag https://registry.npmjs.org/cordova-plugin-inappbrowser from cache
-80 verbose get saving cordova-plugin-inappbrowser to C:\Users\Dev-Machine\AppData\Roaming\npm-cache\registry.npmjs.org\cordova-plugin-inappbrowser\.cache.json
-81 silly resolveWithNewModule cordova-plugin-inappbrowser@1.7.0 checking installable status
-82 silly cache add args [ 'cordova-plugin-inappbrowser@1.7.0', null ]
-83 verbose cache add spec cordova-plugin-inappbrowser@1.7.0
-84 silly cache add parsed spec Result {
-84 silly cache add   raw: 'cordova-plugin-inappbrowser@1.7.0',
-84 silly cache add   scope: null,
-84 silly cache add   name: 'cordova-plugin-inappbrowser',
-84 silly cache add   rawSpec: '1.7.0',
-84 silly cache add   spec: '1.7.0',
-84 silly cache add   type: 'version' }
-85 silly addNamed cordova-plugin-inappbrowser@1.7.0
-86 verbose addNamed "1.7.0" is a plain semver version for cordova-plugin-inappbrowser
-87 silly mapToRegistry name cordova-plugin-inappbrowser
-88 silly mapToRegistry using default registry
-89 silly mapToRegistry registry https://registry.npmjs.org/
-90 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-inappbrowser
-91 verbose addNameVersion registry:https://registry.npmjs.org/cordova-plugin-inappbrowser not in flight; fetching
-92 verbose get https://registry.npmjs.org/cordova-plugin-inappbrowser not expired, no request
-93 silly cache afterAdd cordova-plugin-inappbrowser@1.7.0
-94 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-inappbrowser\1.7.0\package\package.json not in flight; writing
-95 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-inappbrowser\1.7.0\package\package.json written
-96 http 404 https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
-97 verbose headers { 'content-type': 'application/json',
-97 verbose headers   'cache-control': 'max-age=0',
-97 verbose headers   'content-length': '2',
-97 verbose headers   'accept-ranges': 'bytes',
-97 verbose headers   date: 'Thu, 21 Sep 2017 16:42:39 GMT',
-97 verbose headers   via: '1.1 varnish',
-97 verbose headers   age: '0',
-97 verbose headers   connection: 'keep-alive',
-97 verbose headers   'x-served-by': 'cache-mad9424-MAD',
-97 verbose headers   'x-cache': 'MISS',
-97 verbose headers   'x-cache-hits': '0',
-97 verbose headers   'x-timer': 'S1506012159.725867,VS0,VE875',
-97 verbose headers   vary: 'Accept-Encoding' }
-98 silly get cb [ 404,
-98 silly get   { 'content-type': 'application/json',
-98 silly get     'cache-control': 'max-age=0',
-98 silly get     'content-length': '2',
-98 silly get     'accept-ranges': 'bytes',
-98 silly get     date: 'Thu, 21 Sep 2017 16:42:39 GMT',
-98 silly get     via: '1.1 varnish',
-98 silly get     age: '0',
-98 silly get     connection: 'keep-alive',
-98 silly get     'x-served-by': 'cache-mad9424-MAD',
-98 silly get     'x-cache': 'MISS',
-98 silly get     'x-cache-hits': '0',
-98 silly get     'x-timer': 'S1506012159.725867,VS0,VE875',
-98 silly get     vary: 'Accept-Encoding' } ]
-99 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
-99 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
-99 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:242:14)
-99 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
-99 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:344:22)
-99 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
-99 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
-99 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1239:14)
-99 silly fetchPackageMetaData     at emitOne (events.js:82:20)
-99 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
-99 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1187:12)
-99 silly fetchPackageMetaData  error for org.jboss.aerogear.cordova.android.reflect@0.0.1 { [Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect]
-99 silly fetchPackageMetaData   pkgid: 'org.jboss.aerogear.cordova.android.reflect',
-99 silly fetchPackageMetaData   statusCode: 404,
-99 silly fetchPackageMetaData   code: 'E404' }
-100 silly rollbackFailedOptional Starting
-101 silly rollbackFailedOptional Finishing
-102 silly runTopLevelLifecycles Starting
-103 silly runTopLevelLifecycles Finishing
-104 silly install printInstalled
-105 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
-105 verbose stack     at makeError (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
-105 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:242:14)
-105 verbose stack     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
-105 verbose stack     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:344:22)
-105 verbose stack     at emitTwo (events.js:87:13)
-105 verbose stack     at Request.emit (events.js:172:7)
-105 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1239:14)
-105 verbose stack     at emitOne (events.js:82:20)
-105 verbose stack     at Request.emit (events.js:169:7)
-105 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1187:12)
-106 verbose statusCode 404
-107 verbose pkgid org.jboss.aerogear.cordova.android.reflect
-108 verbose cwd C:\Dev\Projectos\SeekDownload
-109 error Windows_NT 10.0.15063
-110 error argv "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Web\\External\\node.exe" "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js" "install"
-111 error node v5.4.1
-112 error npm  v3.3.4
-113 error code E404
-114 error 404 Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
-114 error 404
-114 error 404 'org.jboss.aerogear.cordova.android.reflect' is not in the npm registry.
-114 error 404 You should bug the author to publish it (or use the name yourself!)
-114 error 404 It was specified as a dependency of 'SeekDownload'
-114 error 404
-114 error 404 Note that you can also install from a
-114 error 404 tarball, folder, http url, or git url.
-115 verbose exit [ 1, true ]
+54 verbose get saving cordova-plugin-whitelist to C:\Users\Dev-Machine\AppData\Roaming\npm-cache\registry.npmjs.org\cordova-plugin-whitelist\.cache.json
+55 http 200 https://registry.npmjs.org/cordova-plugin-inappbrowser
+56 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+56 verbose headers   server: 'UploadServer',
+56 verbose headers   'cache-control': 'max-age=300',
+56 verbose headers   'last-modified': 'Wed, 20 Dec 2017 18:39:18 GMT',
+56 verbose headers   etag: '"5a3aae56-1264d"',
+56 verbose headers   'content-encoding': 'gzip',
+56 verbose headers   'content-length': '11882',
+56 verbose headers   'accept-ranges': 'bytes',
+56 verbose headers   date: 'Wed, 27 Dec 2017 10:10:56 GMT',
+56 verbose headers   via: '1.1 varnish',
+56 verbose headers   age: '10960',
+56 verbose headers   connection: 'keep-alive',
+56 verbose headers   'x-served-by': 'cache-mad9421-MAD',
+56 verbose headers   'x-cache': 'HIT',
+56 verbose headers   'x-cache-hits': '2',
+56 verbose headers   'x-timer': 'S1514369457.714249,VS0,VE0',
+56 verbose headers   vary: 'Accept-Encoding, Accept' }
+57 silly get cb [ 200,
+57 silly get   { 'content-type': 'application/json; charset=UTF-8',
+57 silly get     server: 'UploadServer',
+57 silly get     'cache-control': 'max-age=300',
+57 silly get     'last-modified': 'Wed, 20 Dec 2017 18:39:18 GMT',
+57 silly get     etag: '"5a3aae56-1264d"',
+57 silly get     'content-encoding': 'gzip',
+57 silly get     'content-length': '11882',
+57 silly get     'accept-ranges': 'bytes',
+57 silly get     date: 'Wed, 27 Dec 2017 10:10:56 GMT',
+57 silly get     via: '1.1 varnish',
+57 silly get     age: '10960',
+57 silly get     connection: 'keep-alive',
+57 silly get     'x-served-by': 'cache-mad9421-MAD',
+57 silly get     'x-cache': 'HIT',
+57 silly get     'x-cache-hits': '2',
+57 silly get     'x-timer': 'S1514369457.714249,VS0,VE0',
+57 silly get     vary: 'Accept-Encoding, Accept' } ]
+58 verbose get saving cordova-plugin-inappbrowser to C:\Users\Dev-Machine\AppData\Roaming\npm-cache\registry.npmjs.org\cordova-plugin-inappbrowser\.cache.json
+59 silly resolveWithNewModule cordova-plugin-whitelist@1.3.3 checking installable status
+60 silly cache add args [ 'cordova-plugin-whitelist@1', null ]
+61 verbose cache add spec cordova-plugin-whitelist@1
+62 silly cache add parsed spec Result {
+62 silly cache add   raw: 'cordova-plugin-whitelist@1',
+62 silly cache add   scope: null,
+62 silly cache add   name: 'cordova-plugin-whitelist',
+62 silly cache add   rawSpec: '1',
+62 silly cache add   spec: '>=1.0.0-0 <2.0.0-0',
+62 silly cache add   type: 'range' }
+63 silly addNamed cordova-plugin-whitelist@>=1.0.0-0 <2.0.0-0
+64 verbose addNamed ">=1.0.0-0 <2.0.0-0" is a valid semver range for cordova-plugin-whitelist
+65 silly addNameRange { name: 'cordova-plugin-whitelist',
+65 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+65 silly addNameRange   hasData: false }
+66 silly mapToRegistry name cordova-plugin-whitelist
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-whitelist
+70 verbose addNameRange registry:https://registry.npmjs.org/cordova-plugin-whitelist not in flight; fetching
+71 silly resolveWithNewModule cordova-plugin-inappbrowser@1.7.0 checking installable status
+72 silly cache add args [ 'cordova-plugin-inappbrowser@1.7.0', null ]
+73 verbose cache add spec cordova-plugin-inappbrowser@1.7.0
+74 silly cache add parsed spec Result {
+74 silly cache add   raw: 'cordova-plugin-inappbrowser@1.7.0',
+74 silly cache add   scope: null,
+74 silly cache add   name: 'cordova-plugin-inappbrowser',
+74 silly cache add   rawSpec: '1.7.0',
+74 silly cache add   spec: '1.7.0',
+74 silly cache add   type: 'version' }
+75 silly addNamed cordova-plugin-inappbrowser@1.7.0
+76 verbose addNamed "1.7.0" is a plain semver version for cordova-plugin-inappbrowser
+77 silly mapToRegistry name cordova-plugin-inappbrowser
+78 silly mapToRegistry using default registry
+79 silly mapToRegistry registry https://registry.npmjs.org/
+80 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-inappbrowser
+81 verbose addNameVersion registry:https://registry.npmjs.org/cordova-plugin-inappbrowser not in flight; fetching
+82 verbose get https://registry.npmjs.org/cordova-plugin-whitelist not expired, no request
+83 silly addNameRange number 2 { name: 'cordova-plugin-whitelist',
+83 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+83 silly addNameRange   hasData: true }
+84 silly addNameRange versions [ 'cordova-plugin-whitelist',
+84 silly addNameRange   [ '1.0.0',
+84 silly addNameRange     '1.1.0',
+84 silly addNameRange     '1.2.0',
+84 silly addNameRange     '1.2.1',
+84 silly addNameRange     '1.2.2',
+84 silly addNameRange     '1.3.0',
+84 silly addNameRange     '1.3.1',
+84 silly addNameRange     '1.3.2',
+84 silly addNameRange     '1.3.3' ] ]
+85 silly addNamed cordova-plugin-whitelist@1.3.3
+86 verbose addNamed "1.3.3" is a plain semver version for cordova-plugin-whitelist
+87 verbose get https://registry.npmjs.org/cordova-plugin-inappbrowser not expired, no request
+88 silly mapToRegistry name cordova-plugin-whitelist
+89 silly mapToRegistry using default registry
+90 silly mapToRegistry registry https://registry.npmjs.org/
+91 silly mapToRegistry uri https://registry.npmjs.org/cordova-plugin-whitelist
+92 verbose addRemoteTarball https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz not in flight; adding
+93 verbose addRemoteTarball [ 'https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz',
+93 verbose addRemoteTarball   'b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4' ]
+94 info retry fetch attempt 1 at 10:10:55
+95 info attempt registry request try #1 at 10:10:55
+96 http fetch GET https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz
+97 silly cache afterAdd cordova-plugin-inappbrowser@1.7.0
+98 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-inappbrowser\1.7.0\package\package.json not in flight; writing
+99 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-inappbrowser\1.7.0\package\package.json written
+100 http fetch 200 https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz
+101 silly fetchAndShaCheck shasum b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4
+102 verbose addTmpTarball C:\Users\DEV-MA~1\AppData\Local\Temp\npm-2368-7dd41a74\registry.npmjs.org\cordova-plugin-whitelist\-\cordova-plugin-whitelist-1.3.3.tgz not in flight; adding
+103 verbose addTmpTarball already have metadata; skipping unpack for cordova-plugin-whitelist@1.3.3
+104 silly cache afterAdd cordova-plugin-whitelist@1.3.3
+105 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-whitelist\1.3.3\package\package.json not in flight; writing
+106 verbose afterAdd C:\Users\Dev-Machine\AppData\Roaming\npm-cache\cordova-plugin-whitelist\1.3.3\package\package.json written
+107 http 404 https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
+108 verbose headers { 'content-type': 'application/json',
+108 verbose headers   'cache-control': 'max-age=0',
+108 verbose headers   'content-length': '2',
+108 verbose headers   'accept-ranges': 'bytes',
+108 verbose headers   date: 'Wed, 27 Dec 2017 10:10:58 GMT',
+108 verbose headers   via: '1.1 varnish',
+108 verbose headers   connection: 'keep-alive',
+108 verbose headers   'x-served-by': 'cache-mad9429-MAD',
+108 verbose headers   'x-cache': 'MISS',
+108 verbose headers   'x-cache-hits': '0',
+108 verbose headers   'x-timer': 'S1514369457.711576,VS0,VE2033',
+108 verbose headers   vary: 'Accept-Encoding' }
+109 silly get cb [ 404,
+109 silly get   { 'content-type': 'application/json',
+109 silly get     'cache-control': 'max-age=0',
+109 silly get     'content-length': '2',
+109 silly get     'accept-ranges': 'bytes',
+109 silly get     date: 'Wed, 27 Dec 2017 10:10:58 GMT',
+109 silly get     via: '1.1 varnish',
+109 silly get     connection: 'keep-alive',
+109 silly get     'x-served-by': 'cache-mad9429-MAD',
+109 silly get     'x-cache': 'MISS',
+109 silly get     'x-cache-hits': '0',
+109 silly get     'x-timer': 'S1514369457.711576,VS0,VE2033',
+109 silly get     vary: 'Accept-Encoding' } ]
+110 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
+110 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+110 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:242:14)
+110 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+110 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:344:22)
+110 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+110 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+110 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1239:14)
+110 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+110 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+110 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1187:12)
+110 silly fetchPackageMetaData  error for org.jboss.aerogear.cordova.android.reflect@0.0.1 { [Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect]
+110 silly fetchPackageMetaData   pkgid: 'org.jboss.aerogear.cordova.android.reflect',
+110 silly fetchPackageMetaData   statusCode: 404,
+110 silly fetchPackageMetaData   code: 'E404' }
+111 silly rollbackFailedOptional Starting
+112 silly rollbackFailedOptional Finishing
+113 silly runTopLevelLifecycles Starting
+114 silly runTopLevelLifecycles Finishing
+115 silly install printInstalled
+116 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
+116 verbose stack     at makeError (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+116 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:242:14)
+116 verbose stack     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+116 verbose stack     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:344:22)
+116 verbose stack     at emitTwo (events.js:87:13)
+116 verbose stack     at Request.emit (events.js:172:7)
+116 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1239:14)
+116 verbose stack     at emitOne (events.js:82:20)
+116 verbose stack     at Request.emit (events.js:169:7)
+116 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio 14.0\Web\External\node_modules\request\request.js:1187:12)
+117 verbose statusCode 404
+118 verbose pkgid org.jboss.aerogear.cordova.android.reflect
+119 verbose cwd C:\Dev\Projectos\SeekDownload
+120 error Windows_NT 10.0.15063
+121 error argv "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Web\\External\\node.exe" "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js" "install"
+122 error node v5.4.1
+123 error npm  v3.3.4
+124 error code E404
+125 error 404 Registry returned 404 for GET on https://registry.npmjs.org/org.jboss.aerogear.cordova.android.reflect
+125 error 404
+125 error 404 'org.jboss.aerogear.cordova.android.reflect' is not in the npm registry.
+125 error 404 You should bug the author to publish it (or use the name yourself!)
+125 error 404 It was specified as a dependency of 'SeekDownload'
+125 error 404
+125 error 404 Note that you can also install from a
+125 error 404 tarball, folder, http url, or git url.
+126 verbose exit [ 1, true ]

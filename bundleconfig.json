@@ -1,9 +1,10 @@
 [{
     "outputFileName": "www/css/scripts.css",
-    "inputFiles": [
+  "inputFiles": [
     "www/css/kendo/kendo.common.min.css",
     "www/css/kendo/kendo.default.min.css",
     "www/css/kendo/kendo.mobile.all.min.css",
+    "www/css/bootstrap/bootstrap.css",
     "www/css/PluginsCss.css",
     "www/css/app.css"
   ],
@@ -18,6 +19,8 @@
       "www/scripts/plugins/kendo.all.min.js",
       "www/scripts/plugins/modernizr-2.6.2.min.js",
       "www/scripts/plugins/material.min.js",
+      "www/scripts/plugins/popperJs.min.js",
+      "www/scripts/plugins/bootstrap.min.js",
       "www/scripts/plugins/googleapi.js",
       "www/scripts/plugins/jsapi.js"
     ],
